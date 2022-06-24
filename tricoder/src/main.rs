@@ -10,7 +10,6 @@ mod subdomains;
 use model::Subdomain;
 mod common_ports;
 
-
 fn main() -> Result<(), anyhow::Error> {
     let args: Vec<String> = env::args().collect();
 

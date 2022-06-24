@@ -1,22 +1,18 @@
+use crate::error::Error;
+use crate::model::{CrtShEntry, Subdomain};
+use reqwest::blocking::Client;
 use std::collections::HashSet;
 use std::time::Duration;
-use crate::error::Error;
-use crate::model::{Subdomain, CrtShEntry};
 use trust_dns_resolver::{
     config::{ResolverConfig, ResolverOpts},
     Resolver,
 };
-use reqwest::blocking::Client;
-
 
 /// This tool will be using the API provided by crt.sh,
 /// which can be queried in the endpoint
 /// `https://crt.sh/?q=%25.[domain.com]&output=json"`.
 
-pub fn enumerate(http_client: &Client,
-                 target: &str)
-    -> Result<Vec<Subdomain>, Error>
-{
+pub fn enumerate(http_client: &Client, target: &str) -> Result<Vec<Subdomain>, Error> {
     let entries: Vec<CrtShEntry> = http_client
         .get(&format!("https://crt.sh/?q=%25.{}&output=json", target))
         .send()?
@@ -55,10 +51,7 @@ pub fn resolves(domain: &Subdomain) -> bool {
     let mut opts = ResolverOpts::default();
     opts.timeout = Duration::from_secs(4);
 
-    let dns_resolver = Resolver::new(
-        ResolverConfig::default(),
-        opts,
-    )
+    let dns_resolver = Resolver::new(ResolverConfig::default(), opts)
         .expect("subdomain resolver: building DNS client");
     dns_resolver.lookup_ip(domain.domain.as_str()).is_ok()
 }
