@@ -1,2 +1,2 @@
-# rust_blackhat
+# Blackhat Rust
 Offensive security with the Rust Programming Language.
