@@ -12,8 +12,8 @@ pub enum Error {
     WebDriver(String)
 }
 
-impl From<request::Error> for Error {
-    fn from(err: request::Error) -> Self {
+impl From<reqwest::Error> for Error {
+    fn from(err: reqwest::Error) -> Self {
         Error::Reqwest(err.to_string())
     }
 }
