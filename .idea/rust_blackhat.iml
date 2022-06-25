@@ -5,9 +5,11 @@
       <sourceFolder url="file://$MODULE_DIR$/sha1_cracker/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tricoder_async/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tricoder_multithread/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tricoder_cli/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/sha1_cracker/target" />
       <excludeFolder url="file://$MODULE_DIR$/tricoder_multithread/target" />
       <excludeFolder url="file://$MODULE_DIR$/tricoder_async/target" />
+      <excludeFolder url="file://$MODULE_DIR$/tricoder_cli/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
