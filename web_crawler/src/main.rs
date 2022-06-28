@@ -42,16 +42,15 @@ async fn main() -> Result<(), anyhow::Error>{
         } else if let Some(matches) = cli.subcommand_matches("run") {
             let spider_name = matches.value_of("spider").unwrap();
             let crawler = Crawler::new(Duration::from_millis(200), 2, 500);
-
             match spider_name {
                 "cvedetails" => {
                     let spider = Arc::new(spiders::cvedetails::CveDetailsSpider::new());
                     crawler.run(spider).await;
                 },
-                // "github" => {
-                //     let spider = Arc::new(spiders::github::GitHubSpider::new());
-                //     crawler.run(spider).await;
-                // },
+                "github" => {
+                    let spider = Arc::new(spiders::github::GitHubSpider::new());
+                    crawler.run(spider).await;
+                },
                 // "quotes" => {
                 //     let spider = Arc::new(spiders::quotes::QuotesSpider::new());
                 //     crawler.run(spider).await;
