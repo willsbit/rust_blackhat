@@ -1,4 +1,5 @@
 pub mod cvedetails;
+pub mod github;
 
 use crate::error::Error;
 use async_trait::async_trait;
