@@ -1,8 +1,7 @@
 use crate::{components, services::HttpClient, Error};
 use common::api::{self, model};
-use web_sys::{console, password, Window};
+use web_sys::{console, Window};
 use yew::{prelude::*, services::fetch::FetchTask};
-use crate::error::Error;
 
 pub struct LoginForm {
     link: ComponentLink<Self>,

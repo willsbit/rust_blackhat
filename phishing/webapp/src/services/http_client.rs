@@ -5,7 +5,6 @@ use yew::{
     format::{Json, Text},
     Callback,
 };
-use crate::error::Error::RequestError;
 
 #[derive(Default, Debug)]
 pub struct HttpClient {}
@@ -38,7 +37,7 @@ impl HttpClient {
                     match meta.status.as_u16() {
                         401 => callback.emit(Err(Error::Unauthorized)),
                         403 => callback.emit(Err(Error::Forbidden)),
-                        404 => callback.emit(Err(Error::NotFound])),
+                        404 => callback.emit(Err(Error::NotFound)),
                         500 => callback.emit(Err(Error::InternalServerError)),
                         _ => callback.emit(Err(Error::RequestError)),
                     }
